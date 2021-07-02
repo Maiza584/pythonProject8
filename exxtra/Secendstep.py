@@ -10,7 +10,7 @@ master.title('Python Desktop Application')
 
 # sets the geometry of main
 # root window
-master.geometry("200x200")
+master.geometry("400x400")
 
 
 # function to open a new window
@@ -25,7 +25,7 @@ def openNewWindow():
     newWindow.title("New Window")
 
     # sets the geometry of toplevel
-    newWindow.geometry("200x200")
+    newWindow.geometry("400x400")
 
     # A Label widget to show in toplevel
     Label(newWindow,
@@ -42,6 +42,23 @@ label.pack(pady=10)
 btn = Button(master,
              text="Gestures recognition",
              command=openNewWindow)
+btn.pack(pady=10)
+
+
+
+# Python code to illustrate read() mode
+file = open("Practice.py", "r")
+print(file.read())
+
+
+# Python code to create a file
+file = open('bye.xlsx','w')
+file = open('hi.xlsx.py','w')
+file.write("This is the write command")
+file.write("I will write all data here")
+file.close()
+
+
 btn.pack(pady=10)
 foreground = "red",  # Set the text color to white
 background = "black",  # Set the background color to black

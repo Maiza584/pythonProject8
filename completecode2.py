@@ -4,7 +4,6 @@ import thread
 from Leap import CircleGesture, KeyTapGesture, ScreenTapGesture, SwipeGesture
 import csv
 
-
 class SampleListener(Leap.Listener):
     row = []
     data = []

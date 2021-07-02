@@ -24,18 +24,9 @@ class Leapmotionlistner(Leap.Listener):
             print("Exited")
 
         def on_frame(self, controller):
-#frame_data
-           frame = controller.frame()
-           print "Frame id: %d, timestamp: %d, hands: %d, fingers: %d, tools: %d, gestures: %d" % (
-               frame.id, frame.timestamp, len(frame.hands), len(frame.fingers), len(frame.tools), len(frame.gestures()))
+           pass
 
-        #   print "Frame ID:" + str(frame.id)\
-        #  +"Timestamp:" + str(frame.timestamp)\
-        #   +"# of Hands" + str(len(frame.hands)) \
-        #  + "# of Fingers" + str(len(frame.fingers))
-        #  +"# of Tools" + str(len(frame.tools)) \
-        # + "# of Gestures" + str(len(frame.gestures()))
-def main():
+        def main():
             listener = Leapmotionlistner()
             controller = Leap.Controller()
 
