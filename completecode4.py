@@ -1,14 +1,11 @@
 
 
-
 from pandas.core import frame
 
 import Leap, sys, thread, time
 
 from Leap import CircleGesture, KeyTapGesture, ScreenTapGesture, SwipeGesture
 import csv
-
-
 
 class SampleListener(Leap.Listener):
     row = []
@@ -212,6 +209,23 @@ class SampleListener(Leap.Listener):
         # del data [:]
 
 #######################################################################################################################################
+
+    ##################min-max normalization###################### https://www.codegrepper.com/code-examples/python/how+to+do+min+max+normalization+in+pandas
+    import pandas as pd
+    from sklearn import preprocessing
+
+    x = row  # returns a numpy array
+    min_max_scaler = preprocessing.MinMaxScaler()
+    x_scaled = min_max_scaler.fit_transform(x)
+    df = pd.DataFrame(x_scaled)
+
+    def scale_data(data, rows, scaler):
+        for row in rows:
+            data[row] = scaler.fit_transform(data[row].array.reshape(1, -1)) #it wont let me put (0, 0.9)     (data[row].values.reshape(1, -1))
+        return data
+
+    ##################min-max normalization###################### https://www.codegrepper.com/code-examples/python/how+to+do+min+max+normalization+in+pandas
+
     def write_to_csv(self, row):
         with open('leap_data2.csv', 'w') as f:
             write = csv.writer(f)
