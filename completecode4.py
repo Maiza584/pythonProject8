@@ -1,5 +1,4 @@
 
-
 from pandas.core import frame
 
 import Leap, sys, thread, time
@@ -37,10 +36,10 @@ class SampleListener(Leap.Listener):
         print "Connected"
 
         # Enable gestures
-        controller.enable_gesture(Leap.Gesture.TYPE_CIRCLE);
-        controller.enable_gesture(Leap.Gesture.TYPE_KEY_TAP);
-        controller.enable_gesture(Leap.Gesture.TYPE_SCREEN_TAP);
-        controller.enable_gesture(Leap.Gesture.TYPE_SWIPE);
+        controller.enable_gesture(Leap.Gesture.TYPE_CIRCLE)
+        controller.enable_gesture(Leap.Gesture.TYPE_KEY_TAP)
+        controller.enable_gesture(Leap.Gesture.TYPE_SCREEN_TAP)
+        controller.enable_gesture(Leap.Gesture.TYPE_SWIPE)
 
     def on_disconnect(self, controller):
         # Note: not dispatched when running in a debugger.
@@ -210,30 +209,33 @@ class SampleListener(Leap.Listener):
 
 #######################################################################################################################################
 
+'''
     ##################min-max normalization###################### https://www.codegrepper.com/code-examples/python/how+to+do+min+max+normalization+in+pandas
     import pandas as pd
     from sklearn import preprocessing
 
     x = row  # returns a numpy array
-    min_max_scaler = preprocessing.MinMaxScaler()
-    x_scaled = min_max_scaler.fit_transform(x)
+    min_max_scalar = preprocessing.MinMaxScaler()
+    x_scaled = min_max_scalar.fit_transform(x)
     df = pd.DataFrame(x_scaled)
 
-    def scale_data(data, rows, scaler):
+    def scale_data(data, rows, scalar):
         for row in rows:
-            data[row] = scaler.fit_transform(data[row].array.reshape(1, -1)) #it wont let me put (0, 0.9)     (data[row].values.reshape(1, -1))
+            data[row] = scalar.fit_transform(data[row].array.reshape(1, -1)) #it wont let me put (0, 0.9)     (data[row].values.reshape(1, -1))
         return data
 
     ##################min-max normalization###################### https://www.codegrepper.com/code-examples/python/how+to+do+min+max+normalization+in+pandas
+'''
 
-    def write_to_csv(self, row):
+def write_to_csv(self, row):
         with open('leap_data2.csv', 'w') as f:
             write = csv.writer(f)
             write.writerow(self.fields)
             write.writerows(row)
-        print "Data stored"
+print "Data stored"
 
-    def state_string(self, state):
+
+def state_string(self, state):
         if state == Leap.Gesture.STATE_START:
             return "STATE_START"
 
@@ -245,6 +247,7 @@ class SampleListener(Leap.Listener):
 
         if state == Leap.Gesture.STATE_INVALID:
             return "STATE_INVALID"
+
 
 def main():
     # Create a sample listener and controller

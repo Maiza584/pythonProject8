@@ -188,13 +188,7 @@ for person_id_i, person_id in enumerate(person_id_list):
             frame = get_frame(frame_name)
             features_angles_list.append(get_angles(frame))
 
-#print ((person_id + ': ' + gesture_id + ' has {} samples, label: {}').format(len(img_leap_l_names), [person_id_i, gesture_i]) )
 
-
-#print ((person_id + ':' + gesture_id + 'has {} samples, label: {}')[person_id_i, gesture_i])
-
-
-#print(person_id + ':' + gesture_id + 'has {} samples, label: {}').format([person_id_i, gesture_i])
 
 print((person_id + ": " + gesture_id + "has {} samples, label: {}").format(person_id, gesture_id))
 ######################################################
